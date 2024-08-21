@@ -6,11 +6,9 @@ import ProfileContent from '~/pages/Profiles/ProfileContent'
 
 function Profile() {
   return (
-    <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
-      <AppBar />
+    <Container disableGutters maxWidth={false}>
       <ProfileBar />
       <ProfileContent />
-      <Footer />
     </Container>
   )
 }

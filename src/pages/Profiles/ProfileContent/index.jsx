@@ -1,12 +1,13 @@
-import * as React from 'react'
-import { keyframes, styled } from '@mui/material/styles'
+import { Container } from '@mui/material'
 import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
-import Grid from '@mui/material/Grid'
+import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import * as React from 'react'
+import { Button, Col, Form, Row } from 'react-bootstrap'
 
 
 const MOCK_SIDEBAR = [
@@ -44,18 +45,17 @@ function ProfileContent() {
   const [secondary, setSecondary] = React.useState(false)
 
   return (
-    <Box sx={{
-      display: 'flex',
-      justifyContent: 'center'
+    <Container maxWidth='xl' sx={{
+      display: 'flex'
     }}>
-      <Box sx={{ flexGrow: 1, maxWidth: 500 }}>
+      <Box sx={{ width: '30vw' }}>
         <Grid container spacing={1}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs md={6}>
             <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
               Manage My Account
             </Typography>
             <Demo>
-              <List dense={dense}>
+              <List dense={dense} sx={{ ml: 3 }}>
                 {MOCK_SIDEBAR.map((item) => (
                   <ListItem key={item.key}>
                     <ListItemText
@@ -66,13 +66,11 @@ function ProfileContent() {
                 ))}
               </List>
             </Demo>
-
-
             <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
               My Orders
             </Typography>
             <Demo>
-              <List dense={dense}>
+              <List dense={dense} sx={{ ml: 3 }}>
                 {MOCK_SIDEBAR_MYORDERS.map((item) => (
                   <ListItem key={item.key}>
                     <ListItemText
@@ -89,52 +87,102 @@ function ProfileContent() {
           </Grid>
         </Grid>
       </Box>
-      <Box>
-        Edit Your Profile
-        <Form className="w-75">
-          <Form.Group
-            className=" d-flex flex-column"
-            controlId="name"
-          >
-          </Form.Group>
-          <Form.Group
-            className=" d-flex flex-column"
-            controlId="name"
-          >
-          </Form.Group>
-
-          <Form.Group controlId="userName" className='pb-3'>
-            <Form.Control
-              className='fw-light ps-0 border-0 border-5 border-bottom border-light-subtle shadow-none'
-              type="text"
-              placeholder='Email or Phone Number'
-              name="userName"
-            />
-          </Form.Group>
-
-          <Form.Group controlId="password" className="mt-3 pb-3">
-            <Form.Control
-              className='fw-light ps-0 border-0 border-5 border-bottom border-light-subtle shadow-none'
-              type="password"
-              placeholder='Password'
-              name="password"
-            />
-          </Form.Group>
-          <Row className='d-flex justify-content-between align-content-center'>
-            <Col>
-              <Button
-                variant="danger"
-                className="fw-bold mt-4 w-75"
-              >
-                Log in
-              </Button>
+      <Box
+        width={'70vw'}
+        boxShadow={'1px 1px 10px 1px rgba(0,0,0,.2)'}
+        px={20}
+        py={12}
+        display={'flex'}
+        flexDirection={'column'}
+        gap={5}
+      >
+        <Typography fontSize={20} color={'#db4444'} fontWeight={'medium'}>Edit Your Profile</Typography>
+        <Form className="w-100">
+          <Form.Group controlId="infomation" className='pb-3 d-flex flex-column gap-4'>
+            <Row className='d-flex gap-3'>
+              <Col>
+                <Form.Label className='fw-medium'>First Name</Form.Label>
+                <Form.Control
+                  size='lg'
+                  className='rounded-1 fs-6 bg-body-tertiary'
+                  type="text"
+                  placeholder='Enter First Name'
+                  name="firstName"
+                />
+              </Col>
+              <Col>
+                <Form.Label className='fw-medium'>Last Name</Form.Label>
+                <Form.Control
+                  size='lg'
+                  className='rounded-1 fs-6 bg-body-tertiary'
+                  type="text"
+                  placeholder='Enter Last Name'
+                  name="lastName"
+                />
+              </Col>
+            </Row>
+            <Row className='d-flex gap-3'>
+              <Col>
+                <Form.Label className='fw-medium'>Email</Form.Label>
+                <Form.Control
+                  size='lg'
+                  className='rounded-1 fs-6 bg-body-tertiary'
+                  type="text"
+                  placeholder='Enter Email'
+                  name="email"
+                />
+              </Col>
+              <Col>
+                <Form.Label className='fw-medium'>Address</Form.Label>
+                <Form.Control
+                  size='lg'
+                  className='rounded-1 fs-6 bg-body-tertiary'
+                  type="text"
+                  placeholder='Enter Address'
+                  name="address"
+                />
+              </Col>
+            </Row>
+            <Col className='d-flex flex-column gap-3'>
+              <Form.Label className='fw-medium'>Password Changes</Form.Label>
+              <Form.Control
+                size='lg'
+                className='rounded-1 fs-6 bg-body-tertiary'
+                type="password"
+                placeholder='Current Password'
+                name="currentPassword"
+              />
+              <Form.Control
+                size='lg'
+                className='rounded-1 fs-6 bg-body-tertiary'
+                type="password"
+                placeholder='New Password'
+                name="newPassword"
+              />
+              <Form.Control
+                size='lg'
+                className='rounded-1 fs-6 bg-body-tertiary'
+                type="password"
+                placeholder='Confirm New Password'
+                name="confirmNewPassword"
+              />
             </Col>
-            <Col>
+          </Form.Group>
+          <Row className='d-flex align-items-center float-end'>
+            <Col md={3}>
               <Button
                 variant=""
-                className="text-danger mt-4 w-100"
+                className="mt-4 fw-medium"
               >
-                Forgot password?
+                Cancel
+              </Button>
+            </Col>
+            <Col md={9}>
+              <Button
+                variant="danger"
+                className="btn mt-4 ps-5 pe-5 pt-3 pb-3 rounded-1 w-100"
+              >
+                Save Changes
               </Button>
             </Col>
           </Row>
@@ -142,7 +190,7 @@ function ProfileContent() {
       </Box>
 
 
-    </Box>
+    </Container>
   )
 }
 

@@ -6,18 +6,17 @@ import SearchFieldComponent from '~/components/AppBar/SearchField/SearchField.co
 function Footer() {
   return (
     <Box sx={{
-      backgroundColor: '#000'
+      backgroundColor: '#000',
     }}>
       <Box sx={{
         display: 'flex',
         justifyContent: 'space-evenly',
         flexDirection: 'row',
         color: '#fff',
-        marginBottom: '40px'
+        py: '40px'
       }}>
 
         <Box sx={{
-          marginTop: '40px'
         }}>
           <Typography sx={{
             textTransform: 'uppercase',
@@ -31,7 +30,7 @@ function Footer() {
             Subscribe
           </Typography>
 
-          <Typography sx={{ lineHeight: '2', marginBottom: '10px' }}>
+          <Typography sx={{ lineHeight: '2' }}>
             Get 10% off your first order
           </Typography>
 
@@ -39,7 +38,6 @@ function Footer() {
         </Box>
 
         <Box sx={{
-          marginTop: '40px'
         }}>
           <Typography sx={{
             textTransform: 'uppercase',
@@ -63,7 +61,6 @@ function Footer() {
         </Box>
 
         <Box sx={{
-          marginTop: '40px'
         }}>
           <Typography sx={{
             // fontFamily: 'Neue Kabel, Roboto, Arial, sans-serif',
@@ -96,7 +93,6 @@ function Footer() {
         </Box>
 
         <Box sx={{
-          marginTop: '40px'
         }}>
           <Typography sx={{
             // fontFamily: 'Neue Kabel, Roboto, Arial, sans-serif',
@@ -125,7 +121,6 @@ function Footer() {
         </Box>
 
         <Box sx={{
-          marginTop: '40px'
         }}>
           <Typography sx={{
             // fontFamily: 'Neue Kabel, Roboto, Arial, sans-serif',
@@ -149,7 +144,6 @@ function Footer() {
         color: '#fff'
       }}>
         <Divider style={{
-          marginTop: '20px',
           borderWidth: '1px',
           opacity: '100%',
           color: '#fff'
